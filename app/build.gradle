@@ -3,7 +3,7 @@ plugins {
 }
 
 android {
-    namespace 'com.example'
+    namespace 'com.movie'
     compileSdk 34
 
     defaultConfig {

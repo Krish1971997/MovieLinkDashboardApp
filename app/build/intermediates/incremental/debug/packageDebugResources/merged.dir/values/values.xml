@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="bubble_bg">#FFEBF1FF</color>
+    <color name="bubble_blue">#FF2879FF</color>
+    <color name="bubble_border">#FFE2EAF8</color>
+    <color name="bubble_card_bg">#FFFFFFFF</color>
+    <color name="bubble_cyan">#FF00D2FF</color>
+    <color name="bubble_green">#FF10B981</color>
+    <color name="bubble_orange">#FFF59E0B</color>
+    <color name="bubble_pink">#FFEC4899</color>
+    <color name="bubble_purple">#FF8B5CF6</color>
+    <color name="bubble_text_muted">#FF9EACCB</color>
+    <color name="bubble_text_primary">#FF1E2442</color>
+    <color name="bubble_text_secondary">#FF6B7AA6</color>
+    <color name="clean_btn_gradient_end">#FF00D4FF</color>
+    <color name="clean_btn_gradient_start">#FF2879FF</color>
+    <color name="gauge_green">#FF00FFCC</color>
+    <color name="gauge_purple">#FF7F00FF</color>
+    <color name="gold_gradient_end">#FFF59E0B</color>
+    <color name="gold_gradient_start">#FFFCD34D</color>
+    <color name="lock_bg">#FF0F172A</color>
+    <color name="lock_key_bg">#55334155</color>
+    <color name="lock_key_fn_bg">#801E293B</color>
+    <color name="premium_end">#FF60A5FA</color>
+    <color name="premium_gradient_end">#FF2B53D3</color>
+    <color name="premium_gradient_start">#FF4C81FF</color>
+    <color name="premium_start">#FF3B82F6</color>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="slate_400">#FF94A3B8</color>
+    <color name="slate_500">#FF64748B</color>
+    <color name="slate_600">#FF475569</color>
+    <color name="slate_700">#FF334155</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="terminal_amber">#FFFBBF24</color>
+    <color name="terminal_bg">#FF0F172A</color>
+    <color name="terminal_cyan">#FF38BDF8</color>
+    <color name="terminal_green">#FF34D399</color>
+    <color name="terminal_red">#FFF87171</color>
+    <color name="white">#FFFFFFFF</color>
+    <string name="app_name">Movie Link</string>
+    <string name="lock_hint">Enter your PIN code to decrypt dataset listings</string>
+    <string name="tab_config">Config</string>
+    <string name="tab_dashboard">Dashboard</string>
+    <string name="tab_search">Search</string>
+    <string name="tab_sync">Sync Hub</string>
+    <string name="title_brand">MOVIE LINK MANAGER</string>
+    <string name="title_brand_sub">CINEMATIC SYNC PLATFORM</string>
+    <style name="AppCaption">
+        <item name="android:textColor">@color/bubble_text_secondary</item>
+        <item name="android:textSize">11sp</item>
+    </style>
+    <style name="AppSectionTitle">
+        <item name="android:textColor">@color/bubble_text_primary</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="AppText">
+        <item name="android:textColor">@color/bubble_text_primary</item>
+    </style>
+    <style name="BottomTabIcon">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/bubble_text_secondary</item>
+        <item name="android:fontFamily">@font/material_icons</item>
+    </style>
+    <style name="BottomTabItem">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:gravity">center</item>
+        <item name="android:paddingStart">12dp</item>
+        <item name="android:paddingEnd">12dp</item>
+        <item name="android:paddingTop">6dp</item>
+        <item name="android:paddingBottom">6dp</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+    </style>
+    <style name="BottomTabLabel">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">3dp</item>
+        <item name="android:textSize">10sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/bubble_text_secondary</item>
+    </style>
+    <style name="BubbleCard">
+        <item name="android:background">@drawable/bg_card</item>
+        <item name="android:padding">14dp</item>
+    </style>
+    <style name="BubbleEditText" parent="Widget.AppCompat.EditText">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">48dp</item>
+        <item name="android:background">@drawable/bg_card_12</item>
+        <item name="android:paddingStart">12dp</item>
+        <item name="android:paddingEnd">12dp</item>
+        <item name="android:textColor">@color/bubble_text_primary</item>
+        <item name="android:textColorHint">@color/bubble_text_muted</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:singleLine">true</item>
+    </style>
+    <style name="ChipStyle">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:paddingStart">14dp</item>
+        <item name="android:paddingEnd">14dp</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingBottom">8dp</item>
+        <item name="android:textSize">11sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+    </style>
+    <style name="FieldLabel">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/bubble_text_secondary</item>
+        <item name="android:textSize">11sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="IconButton">
+        <item name="android:layout_width">40dp</item>
+        <item name="android:layout_height">40dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/bubble_blue</item>
+        <item name="android:textSize">22sp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:background">?android:attr/selectableItemBackgroundBorderless</item>
+        <item name="android:fontFamily">@font/material_icons</item>
+    </style>
+    <style name="IconInline">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:fontFamily">@font/material_icons</item>
+    </style>
+    <style name="IconSmall">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/bubble_blue</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">@font/material_icons</item>
+    </style>
+    <style name="TerminalText">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">monospace</item>
+        <item name="android:textSize">11sp</item>
+        <item name="android:lineSpacingExtra">5sp</item>
+        <item name="android:textColor">@color/slate_400</item>
+    </style>
+    <style name="Theme.MyApplication" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">@color/bubble_blue</item>
+        <item name="colorPrimaryDark">@color/bubble_blue</item>
+        <item name="colorAccent">@color/bubble_cyan</item>
+        <item name="android:windowBackground">@color/bubble_bg</item>
+        <item name="android:statusBarColor">@color/bubble_bg</item>
+        <item name="android:textColorPrimary">@color/bubble_text_primary</item>
+    </style>
+    <style name="Theme.MyApplication.Dialog" parent="Theme.MaterialComponents.Light.Dialog.Alert">
+        <item name="colorPrimary">@color/bubble_blue</item>
+        <item name="colorAccent">@color/bubble_cyan</item>
+    </style>
+</resources>
