@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Movie Link</string>
+    <string name="title_brand">MOVIE LINK MANAGER</string>
+    <string name="title_brand_sub">CINEMATIC SYNC PLATFORM</string>
+    <string name="tab_search">Search</string>
+    <string name="tab_sync">Sync Hub</string>
+    <string name="tab_dashboard">Dashboard</string>
+    <string name="tab_config">Config</string>
+    <string name="lock_hint">Enter your PIN code to decrypt dataset listings</string>
+</resources>
