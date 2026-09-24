@@ -2,6 +2,7 @@ package com.movie.data;
 
 import androidx.annotation.NonNull;
 import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 /**
@@ -40,14 +41,17 @@ public class MovieRecord {
 
     private long importedAt;
 
+    @Ignore // <--- ROOM-AI INTHA CONSTRUCTOR-AI IGNORE PANNA SOLLALAM
     public MovieRecord() {
         this(0, "", "", "", "", "", System.currentTimeMillis());
     }
 
+    @Ignore // <--- ADD THIS
     public MovieRecord(@NonNull String name) {
         this(0, name, "", "", "", "", System.currentTimeMillis());
     }
 
+    @Ignore // <--- ADD THIS
     public MovieRecord(int id,
                        @NonNull String name,
                        @NonNull String sublink,

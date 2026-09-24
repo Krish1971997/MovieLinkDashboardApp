@@ -20,6 +20,7 @@ import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SwitchCompat;
+import androidx.core.content.ContextCompat;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -298,7 +299,8 @@ public class MainActivity extends AppCompatActivity {
 
         for (int i = 0; i < tabIds.length; i++) {
             boolean active = (i == activeBottomTab);
-            int color = getResources().getColor(active ? R.color.bubble_blue : R.color.bubble_text_secondary);
+// Direct-a getResources().getColor(...) thavirthu ContextCompat use pannunga
+            int color = ContextCompat.getColor(this, active ? R.color.bubble_blue : R.color.bubble_text_secondary);
             ((TextView) findViewById(iconIds[i])).setTextColor(color);
             ((TextView) findViewById(labelIds[i])).setTextColor(color);
         }

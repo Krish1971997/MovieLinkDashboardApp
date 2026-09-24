@@ -173,48 +173,41 @@ public final class MovieRecordDao_Impl implements MovieRecordDao {
           final List<MovieRecord> _result = new ArrayList<MovieRecord>(_cursor.getCount());
           while (_cursor.moveToNext()) {
             final MovieRecord _item;
-            _item = new MovieRecord();
             final int _tmpId;
             _tmpId = _cursor.getInt(_cursorIndexOfId);
-            _item.setId(_tmpId);
             final String _tmpName;
             if (_cursor.isNull(_cursorIndexOfName)) {
               _tmpName = null;
             } else {
               _tmpName = _cursor.getString(_cursorIndexOfName);
             }
-            _item.setName(_tmpName);
             final String _tmpSublink;
             if (_cursor.isNull(_cursorIndexOfSublink)) {
               _tmpSublink = null;
             } else {
               _tmpSublink = _cursor.getString(_cursorIndexOfSublink);
             }
-            _item.setSublink(_tmpSublink);
             final String _tmpCategory;
             if (_cursor.isNull(_cursorIndexOfCategory)) {
               _tmpCategory = null;
             } else {
               _tmpCategory = _cursor.getString(_cursorIndexOfCategory);
             }
-            _item.setCategory(_tmpCategory);
             final String _tmpLink;
             if (_cursor.isNull(_cursorIndexOfLink)) {
               _tmpLink = null;
             } else {
               _tmpLink = _cursor.getString(_cursorIndexOfLink);
             }
-            _item.setLink(_tmpLink);
             final String _tmpPageUrl;
             if (_cursor.isNull(_cursorIndexOfPageUrl)) {
               _tmpPageUrl = null;
             } else {
               _tmpPageUrl = _cursor.getString(_cursorIndexOfPageUrl);
             }
-            _item.setPageUrl(_tmpPageUrl);
             final long _tmpImportedAt;
             _tmpImportedAt = _cursor.getLong(_cursorIndexOfImportedAt);
-            _item.setImportedAt(_tmpImportedAt);
+            _item = new MovieRecord(_tmpId,_tmpName,_tmpSublink,_tmpCategory,_tmpLink,_tmpPageUrl,_tmpImportedAt);
             _result.add(_item);
           }
           return _result;
@@ -247,48 +240,41 @@ public final class MovieRecordDao_Impl implements MovieRecordDao {
       final List<MovieRecord> _result = new ArrayList<MovieRecord>(_cursor.getCount());
       while (_cursor.moveToNext()) {
         final MovieRecord _item;
-        _item = new MovieRecord();
         final int _tmpId;
         _tmpId = _cursor.getInt(_cursorIndexOfId);
-        _item.setId(_tmpId);
         final String _tmpName;
         if (_cursor.isNull(_cursorIndexOfName)) {
           _tmpName = null;
         } else {
           _tmpName = _cursor.getString(_cursorIndexOfName);
         }
-        _item.setName(_tmpName);
         final String _tmpSublink;
         if (_cursor.isNull(_cursorIndexOfSublink)) {
           _tmpSublink = null;
         } else {
           _tmpSublink = _cursor.getString(_cursorIndexOfSublink);
         }
-        _item.setSublink(_tmpSublink);
         final String _tmpCategory;
         if (_cursor.isNull(_cursorIndexOfCategory)) {
           _tmpCategory = null;
         } else {
           _tmpCategory = _cursor.getString(_cursorIndexOfCategory);
         }
-        _item.setCategory(_tmpCategory);
         final String _tmpLink;
         if (_cursor.isNull(_cursorIndexOfLink)) {
           _tmpLink = null;
         } else {
           _tmpLink = _cursor.getString(_cursorIndexOfLink);
         }
-        _item.setLink(_tmpLink);
         final String _tmpPageUrl;
         if (_cursor.isNull(_cursorIndexOfPageUrl)) {
           _tmpPageUrl = null;
         } else {
           _tmpPageUrl = _cursor.getString(_cursorIndexOfPageUrl);
         }
-        _item.setPageUrl(_tmpPageUrl);
         final long _tmpImportedAt;
         _tmpImportedAt = _cursor.getLong(_cursorIndexOfImportedAt);
-        _item.setImportedAt(_tmpImportedAt);
+        _item = new MovieRecord(_tmpId,_tmpName,_tmpSublink,_tmpCategory,_tmpLink,_tmpPageUrl,_tmpImportedAt);
         _result.add(_item);
       }
       return _result;
