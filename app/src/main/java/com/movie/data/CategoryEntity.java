@@ -104,7 +104,9 @@ public class CategoryEntity {
         this.position = position;
     }
 
-    /** Stable lookup key for matching a workbook row's category text to this entity. */
+    /**
+     * Stable lookup key for matching a workbook row's category text to this entity.
+     */
     @NonNull
     public String getCategoryKey() {
         return displayName.toLowerCase(Locale.ROOT);
@@ -118,7 +120,9 @@ public class CategoryEntity {
         this.updatedAt = updatedAt;
     }
 
-    /** Always store as /path/ with leading and trailing slashes. */
+    /**
+     * Always store as /path/ with leading and trailing slashes.
+     */
     public static String normalizePath(String raw) {
         if (raw == null) return "";
         String trimmed = raw.trim();
@@ -128,7 +132,9 @@ public class CategoryEntity {
         return trimmed;
     }
 
-    /** Derives a human friendly display name from a /path/ like "/tamil-2026-movies/". */
+    /**
+     * Derives a human friendly display name from a /path/ like "/tamil-2026-movies/".
+     */
     public static String displayNameFor(String path) {
         if (path == null) return "";
         String p = path.trim();

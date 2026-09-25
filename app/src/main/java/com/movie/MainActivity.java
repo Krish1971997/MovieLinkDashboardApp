@@ -983,7 +983,8 @@ public class MainActivity extends AppCompatActivity {
             }
         }
 
-        p.setBaseUrl(cfgBaseUrl.getText().toString());
+        String newBase = cfgBaseUrl.getText().toString().trim();
+        p.setBaseUrl(newBase);
         p.setClientId(cfgClientId.getText().toString().trim());
         p.setClientSecret(cfgClientSecret.getText().toString().trim());
         p.setRefreshToken(cfgRefreshToken.getText().toString().trim());
@@ -1004,10 +1005,130 @@ public class MainActivity extends AppCompatActivity {
         String pin = cfgPin.getText().toString().trim();
         p.setAppLockPasscode(pin.isEmpty() ? "1234" : pin);
 
+        updateDatabaseUrlsWithNewBase(newBase);
+
         Toast.makeText(this, "Keys and security configurations secured!", Toast.LENGTH_SHORT).show();
         refreshSyncUi();
         refreshLastRunLine();
         SyncRunLog.appendLine(this, "Config tab saved");
+    }
+
+    private void updateDatabaseUrlsWithNewBase(final String newBase) {
+        if (newBase == null || newBase.trim().isEmpty()) return;
+        java.util.concurrent.Executors.newSingleThreadExecutor().execute(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    MovieDatabase db = MovieDatabase.getDatabase(MainActivity.this);
+                    List<com.movie.data.MovieRecord> movies = db.movieDao().getAllMoviesNow();
+                    if (movies != null && !movies.isEmpty()) {
+                        boolean updated = false;
+                        for (com.movie.data.MovieRecord m : movies) {
+                            String oldLink = m.getLink();
+                            String newLink = updateUrlWithNewBase(oldLink, newBase);
+
+                            String oldPageUrl = m.getPageUrl();
+                            String newPageUrl = updateUrlWithNewBase(oldPageUrl, newBase);
+
+                            String oldSublink = m.getSublink();
+                            String newSublink = updateUrlWithNewBase(oldSublink, newBase);
+
+                            if (!stringEquals(oldLink, newLink) || !stringEquals(oldPageUrl, newPageUrl) || !stringEquals(oldSublink, newSublink)) {
+                                m.setLink(newLink != null ? newLink : "");
+                                m.setPageUrl(newPageUrl != null ? newPageUrl : "");
+                                m.setSublink(newSublink != null ? newSublink : "");
+                                updated = true;
+                            }
+                        }
+                        if (updated) {
+                            db.movieDao().insertAll(movies);
+                            android.util.Log.i("MainActivity", "Updated " + movies.size() + " movie records with new Base URL: " + newBase);
+                        }
+                    }
+
+                    List<CategoryEntity> categories = db.categoryDao().getAllNow();
+                    if (categories != null && !categories.isEmpty()) {
+                        boolean updated = false;
+                        for (CategoryEntity c : categories) {
+                            String oldPath = c.getPath();
+                            if (oldPath != null && (oldPath.startsWith("http://") || oldPath.startsWith("https://"))) {
+                                String newPath = updateUrlWithNewBase(oldPath, newBase);
+                                if (!oldPath.equals(newPath)) {
+                                    c.setPath(newPath != null ? newPath : "");
+                                    updated = true;
+                                }
+                            }
+                        }
+                        if (updated) {
+                            db.categoryDao().insertAll(categories);
+                        }
+                    }
+                } catch (Exception e) {
+                    android.util.Log.e("MainActivity", "Error updating database base URLs: " + e.getMessage(), e);
+                }
+            }
+        });
+    }
+
+    public static String updateUrlWithNewBase(String originalUrl, String newBase) {
+        if (originalUrl == null || originalUrl.trim().isEmpty()) {
+            return originalUrl;
+        }
+        String trimmedUrl = originalUrl.trim();
+        String normalizedNewBase = normalizeBaseUrlString(newBase);
+        if (normalizedNewBase.isEmpty()) {
+            return originalUrl;
+        }
+        String cleanNewBaseNoSlash = normalizedNewBase.endsWith("/")
+                ? normalizedNewBase.substring(0, normalizedNewBase.length() - 1)
+                : normalizedNewBase;
+
+        if (trimmedUrl.startsWith("http://") || trimmedUrl.startsWith("https://")) {
+            try {
+                java.net.URI uri = new java.net.URI(trimmedUrl);
+                String pathAndQuery = uri.getRawPath();
+                if (pathAndQuery == null || pathAndQuery.isEmpty()) {
+                    pathAndQuery = "/";
+                }
+                if (uri.getRawQuery() != null && !uri.getRawQuery().isEmpty()) {
+                    pathAndQuery += "?" + uri.getRawQuery();
+                }
+                if (uri.getRawFragment() != null && !uri.getRawFragment().isEmpty()) {
+                    pathAndQuery += "#" + uri.getRawFragment();
+                }
+                if (!pathAndQuery.startsWith("/")) {
+                    pathAndQuery = "/" + pathAndQuery;
+                }
+                return cleanNewBaseNoSlash + pathAndQuery;
+            } catch (Exception e) {
+                int firstSlashAfterScheme = trimmedUrl.indexOf('/', trimmedUrl.indexOf("://") + 3);
+                if (firstSlashAfterScheme != -1) {
+                    String pathPart = trimmedUrl.substring(firstSlashAfterScheme);
+                    return cleanNewBaseNoSlash + pathPart;
+                } else {
+                    return cleanNewBaseNoSlash + "/";
+                }
+            }
+        }
+        return originalUrl;
+    }
+
+    private static String normalizeBaseUrlString(String b) {
+        String trimmed = b == null ? "" : b.trim();
+        if (trimmed.isEmpty()) return "";
+        if (!trimmed.startsWith("http://") && !trimmed.startsWith("https://")) {
+            trimmed = "https://" + trimmed;
+        }
+        if (!trimmed.endsWith("/")) {
+            trimmed = trimmed + "/";
+        }
+        return trimmed;
+    }
+
+    private static boolean stringEquals(String a, String b) {
+        if (a == null && b == null) return true;
+        if (a == null || b == null) return false;
+        return a.equals(b);
     }
 
     // ================================================================

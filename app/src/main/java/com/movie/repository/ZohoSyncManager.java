@@ -24,7 +24,7 @@ import okhttp3.Response;
 
 /**
  * Java port of ZohoSyncManager.kt
- *
+ * <p>
  * Kotlin `object ZohoSyncManager` -> Java final class with static methods.
  * `by lazy` OkHttpClient -> lazy-initialised static holder with double-checked locking.
  */
@@ -51,7 +51,9 @@ public final class ZohoSyncManager {
         return client;
     }
 
-    /** Kotlin data class ZohoFileItem -> simple Java POJO. */
+    /**
+     * Kotlin data class ZohoFileItem -> simple Java POJO.
+     */
     public static class ZohoFileItem {
         public final String id;
         public final String name;
@@ -125,7 +127,8 @@ public final class ZohoSyncManager {
 
                 if (!response.isSuccessful()) {
                     String errorMsg = json.optString("error", null);
-                    if (errorMsg == null) errorMsg = json.optString("message", "HTTP status " + response.code());
+                    if (errorMsg == null)
+                        errorMsg = json.optString("message", "HTTP status " + response.code());
                     throw new Exception("Zoho OAuth Error (" + errorMsg + ") on host: " + serverBase);
                 }
 
@@ -243,7 +246,8 @@ public final class ZohoSyncManager {
                     String detail = null;
                     if (firstErr != null) {
                         detail = firstErr.optString("detail", "");
-                        if (detail.isEmpty()) detail = firstErr.optString("title", "Unknown API error");
+                        if (detail.isEmpty())
+                            detail = firstErr.optString("title", "Unknown API error");
                     }
                     throw new Exception("Zoho List Files API Error: " + detail);
                 }

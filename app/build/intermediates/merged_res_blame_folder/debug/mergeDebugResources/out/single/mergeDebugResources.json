@@ -12,6 +12,10 @@
         "source": "C:\\Users\\Admin\\.gradle\\daemon\\8.7\\com.movie.app-main-41:\\drawable\\ic_launcher_background.xml"
     },
     {
+        "merged": "com.movie.app-debug-39:/layout_view_tab_config.xml.flat",
+        "source": "com.movie.app-main-41:/layout/view_tab_config.xml"
+    },
+    {
         "merged": "C:\\Users\\Admin\\.gradle\\daemon\\8.7\\com.movie.app-debug-39:\\layout_view_app_lock.xml.flat",
         "source": "C:\\Users\\Admin\\.gradle\\daemon\\8.7\\com.movie.app-main-41:\\layout\\view_app_lock.xml"
     },
@@ -56,12 +60,12 @@
         "source": "C:\\Users\\Admin\\.gradle\\daemon\\8.7\\com.movie.app-main-41:\\drawable\\bg_select_circle_on.xml"
     },
     {
-        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\8.7\\com.movie.app-debug-39:\\drawable_bg_select_circle_off.xml.flat",
-        "source": "C:\\Users\\Admin\\.gradle\\daemon\\8.7\\com.movie.app-main-41:\\drawable\\bg_select_circle_off.xml"
-    },
-    {
         "merged": "C:\\Users\\Admin\\.gradle\\daemon\\8.7\\com.movie.app-debug-39:\\drawable_bg_sheet_grid.xml.flat",
         "source": "C:\\Users\\Admin\\.gradle\\daemon\\8.7\\com.movie.app-main-41:\\drawable\\bg_sheet_grid.xml"
+    },
+    {
+        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\8.7\\com.movie.app-debug-39:\\drawable_bg_select_circle_off.xml.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\daemon\\8.7\\com.movie.app-main-41:\\drawable\\bg_select_circle_off.xml"
     },
     {
         "merged": "C:\\Users\\Admin\\.gradle\\daemon\\8.7\\com.movie.app-debug-39:\\drawable_bg_card.xml.flat",
@@ -210,10 +214,6 @@
     {
         "merged": "C:\\Users\\Admin\\.gradle\\daemon\\8.7\\com.movie.app-debug-39:\\mipmap-anydpi-v26_ic_launcher.xml.flat",
         "source": "C:\\Users\\Admin\\.gradle\\daemon\\8.7\\com.movie.app-main-41:\\mipmap-anydpi-v26\\ic_launcher.xml"
-    },
-    {
-        "merged": "com.movie.app-debug-39:/layout_view_tab_console.xml.flat",
-        "source": "com.movie.app-main-41:/layout/view_tab_console.xml"
     },
     {
         "merged": "C:\\Users\\Admin\\.gradle\\daemon\\8.7\\com.movie.app-debug-39:\\layout_view_tab_sync.xml.flat",

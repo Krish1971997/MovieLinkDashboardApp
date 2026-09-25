@@ -137,8 +137,7 @@ public class ZohoPreferences {
     }
 
     public void setBaseUrl(String value) {
-        prefs.edit().putString("base_url",
-                (value == null || value.trim().isEmpty()) ? DEFAULT_BASE_URL : value.trim()).apply();
+        prefs.edit().putString("base_url", (value == null || value.trim().isEmpty()) ? DEFAULT_BASE_URL : value.trim()).apply();
     }
 
     // ================================================================
@@ -151,8 +150,7 @@ public class ZohoPreferences {
     }
 
     public void setZohoAccountsUrl(String value) {
-        prefs.edit().putString("zoho_accounts_url",
-                emptyTo(value, DEFAULT_ZOHO_ACCOUNTS_URL)).apply();
+        prefs.edit().putString("zoho_accounts_url", emptyTo(value, DEFAULT_ZOHO_ACCOUNTS_URL)).apply();
     }
 
     public String getWorkdriveApiUrl() {
@@ -160,8 +158,7 @@ public class ZohoPreferences {
     }
 
     public void setWorkdriveApiUrl(String value) {
-        prefs.edit().putString("workdrive_api_url",
-                emptyTo(value, DEFAULT_WORKDRIVE_API_URL)).apply();
+        prefs.edit().putString("workdrive_api_url", emptyTo(value, DEFAULT_WORKDRIVE_API_URL)).apply();
     }
 
     public String getWorkdriveListUrl() {
@@ -169,8 +166,7 @@ public class ZohoPreferences {
     }
 
     public void setWorkdriveListUrl(String value) {
-        prefs.edit().putString("workdrive_list_url",
-                emptyTo(value, DEFAULT_WORKDRIVE_LIST_URL)).apply();
+        prefs.edit().putString("workdrive_list_url", emptyTo(value, DEFAULT_WORKDRIVE_LIST_URL)).apply();
     }
 
     public String getWorkdriveDownloadUrl() {
@@ -178,15 +174,16 @@ public class ZohoPreferences {
     }
 
     public void setWorkdriveDownloadUrl(String value) {
-        prefs.edit().putString("workdrive_download_url",
-                emptyTo(value, DEFAULT_WORKDRIVE_DOWNLOAD_URL)).apply();
+        prefs.edit().putString("workdrive_download_url", emptyTo(value, DEFAULT_WORKDRIVE_DOWNLOAD_URL)).apply();
     }
 
     // ================================================================
     //  NEW: scheduler state
     // ================================================================
 
-    /** Master ON/OFF switch for the automatic (periodic) scheduler. */
+    /**
+     * Master ON/OFF switch for the automatic (periodic) scheduler.
+     */
     public boolean isSchedulerEnabled() {
         return prefs.getBoolean("scheduler_enabled", false);
     }
@@ -201,8 +198,7 @@ public class ZohoPreferences {
     }
 
     public void setSchedulerIntervalMinutes(int value) {
-        prefs.edit().putInt("scheduler_interval_minutes",
-                Math.max(MIN_SCHEDULER_INTERVAL_MINUTES, value)).apply();
+        prefs.edit().putInt("scheduler_interval_minutes", Math.max(MIN_SCHEDULER_INTERVAL_MINUTES, value)).apply();
     }
 
     public boolean isSchedulerWifiOnly() {
@@ -213,7 +209,9 @@ public class ZohoPreferences {
         prefs.edit().putBoolean("scheduler_wifi_only", value).apply();
     }
 
-    /** Convenience: the exact workbook name that will be uploaded back to WorkDrive. */
+    /**
+     * Convenience: the exact workbook name that will be uploaded back to WorkDrive.
+     */
     public String getUploadFileName() {
         String base = getFileName();
         if (base == null || base.trim().isEmpty()) base = "movies";
