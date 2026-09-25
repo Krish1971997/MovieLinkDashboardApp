@@ -314,6 +314,7 @@ public class MainActivity extends AppCompatActivity {
     private void setupDashboardTab() {
         tabDashboard = LayoutInflater.from(this).inflate(R.layout.view_tab_search, contentHost, false);
         dashSearchInput = tabDashboard.findViewById(R.id.search_tab_input);
+        View dashSearchClear = tabDashboard.findViewById(R.id.search_tab_clear);
         dashMovieList = tabDashboard.findViewById(R.id.search_movie_list);
         dashEmpty = tabDashboard.findViewById(R.id.search_empty);
         dashMatchBadge = tabDashboard.findViewById(R.id.search_match_badge);
@@ -333,6 +334,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onTextChanged(String s) { refreshDashboard(); }
         });
+
+        setupSearchClearButton(dashSearchInput, dashSearchClear);
 
         viewModel.getAllMovies().observe(this, movies -> refreshDashboard());
     }
@@ -585,6 +588,7 @@ public class MainActivity extends AppCompatActivity {
     private void setupCategoriesTab() {
         tabCategories = LayoutInflater.from(this).inflate(R.layout.view_tab_categories, contentHost, false);
         categorySearch = tabCategories.findViewById(R.id.category_search);
+        View categorySearchClear = tabCategories.findViewById(R.id.category_search_clear);
         categoryCount = tabCategories.findViewById(R.id.category_count);
         btnCategorySelectAll = tabCategories.findViewById(R.id.btn_category_select_all);
         btnCategoryRestore = tabCategories.findViewById(R.id.btn_category_restore);
@@ -621,6 +625,8 @@ public class MainActivity extends AppCompatActivity {
                 applyCategoryFilter();
             }
         });
+
+        setupSearchClearButton(categorySearch, categorySearchClear);
 
         btnCategoryAdd.setOnClickListener(v -> showCategoryDialog(null));
 
@@ -1458,6 +1464,21 @@ public class MainActivity extends AppCompatActivity {
 
     private int dp(int value) {
         return (int) (value * getResources().getDisplayMetrics().density);
+    }
+
+    private void setupSearchClearButton(final EditText input, final View clearBtn) {
+        if (input == null || clearBtn == null) return;
+        boolean hasText = input.getText() != null && input.getText().length() > 0;
+        clearBtn.setVisibility(hasText ? View.VISIBLE : View.GONE);
+
+        input.addTextChangedListener(new SimpleTextWatcher() {
+            @Override
+            public void onTextChanged(String s) {
+                clearBtn.setVisibility(s != null && !s.isEmpty() ? View.VISIBLE : View.GONE);
+            }
+        });
+
+        clearBtn.setOnClickListener(v -> input.setText(""));
     }
 
     /** Java equivalent of a Kotlin lambda for TextWatcher. */

@@ -3311,6 +3311,7 @@ id category_list
 id category_name
 id category_path
 id category_search
+id category_search_clear
 id category_text
 id center
 id centerCrop
