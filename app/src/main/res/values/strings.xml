@@ -2,9 +2,14 @@
     <string name="app_name">Movie Link</string>
     <string name="title_brand">MOVIE LINK MANAGER</string>
     <string name="title_brand_sub">CINEMATIC SYNC PLATFORM</string>
-    <string name="tab_search">Search</string>
-    <string name="tab_sync">Sync Hub</string>
-    <string name="tab_dashboard">Dashboard</string>
-    <string name="tab_config">Config</string>
+
+    <!-- 6-tab bottom navigation -->
+    <string name="tab_dashboard">Dashboard</string>      <!-- new search page (screenshot 1) -->
+    <string name="tab_sync">Sync Hub</string>             <!-- existing sync tab                    -->
+    <string name="tab_setup">Setup</string>               <!-- current scheduler + mini console     -->
+    <string name="tab_categories">Categories</string>     <!-- regular categories CRUD              -->
+    <string name="tab_config">Config</string>             <!-- credentials + advanced               -->
+    <string name="tab_console">Console</string>           <!-- full scheduler log                  -->
+
     <string name="lock_hint">Enter your PIN code to decrypt dataset listings</string>
 </resources>

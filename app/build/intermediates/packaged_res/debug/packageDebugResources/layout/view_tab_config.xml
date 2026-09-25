@@ -1,0 +1,473 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Config tab. Changes for this request:
+    * MovieScraperAPI.BASE_URL is now a field at the very TOP of the page.
+    * The 4 UploadFileAPI URLs were added inside the existing
+      "Generic region settings (Advanced Regional Hostings)" section.
+    * Client ID / Client Secret / Refresh Token / Workdrive Folder ID are the EXISTING fields,
+      reused exactly as they were (no new keys).
+-->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="14dp">
+
+        <!-- ================= TOP: MovieScraperAPI.BASE_URL ================= -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="4dp"
+            android:paddingTop="4dp"
+            android:text="Scraper Source Details"
+            android:textColor="@color/bubble_text_primary"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <TextView
+            style="@style/FieldLabel"
+            android:layout_marginTop="12dp"
+            android:text="Base URL (MovieScraperAPI)" />
+
+        <EditText
+            android:id="@+id/config_base_url"
+            style="@style/BubbleEditText"
+            android:layout_marginTop="4dp"
+            android:hint="https://moviesda16.com/" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:paddingStart="2dp"
+            android:text="Every category path is resolved against this host. Trailing slash is added automatically."
+            android:textColor="@color/bubble_text_secondary"
+            android:textSize="9sp" />
+
+        <!-- ================= EXISTING cloud hub credentials ================= -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:paddingStart="4dp"
+            android:text="Cloud Hub Connection Details"
+            android:textColor="@color/bubble_text_primary"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <!-- Client ID -->
+        <TextView
+            style="@style/FieldLabel"
+            android:layout_marginTop="12dp"
+            android:text="Client ID" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:background="@drawable/bg_card_12"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/config_client_id"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:background="@null"
+                android:hint="Client ID key..."
+                android:inputType="textPassword"
+                android:paddingStart="12dp"
+                android:singleLine="true"
+                android:textColor="@color/bubble_text_primary"
+                android:textColorHint="@color/bubble_text_muted"
+                android:textSize="13sp" />
+
+            <TextView
+                android:id="@+id/config_client_id_toggle"
+                style="@style/IconSmall"
+                android:layout_marginEnd="12dp"
+                android:text="visibility"
+                android:textColor="@color/bubble_text_secondary"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <!-- Client Secret -->
+        <TextView
+            style="@style/FieldLabel"
+            android:layout_marginTop="10dp"
+            android:text="Client Secret" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:background="@drawable/bg_card_12"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/config_client_secret"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:background="@null"
+                android:hint="Client Secret key..."
+                android:inputType="textPassword"
+                android:paddingStart="12dp"
+                android:singleLine="true"
+                android:textColor="@color/bubble_text_primary"
+                android:textColorHint="@color/bubble_text_muted"
+                android:textSize="13sp" />
+
+            <TextView
+                android:id="@+id/config_client_secret_toggle"
+                style="@style/IconSmall"
+                android:layout_marginEnd="12dp"
+                android:text="visibility"
+                android:textColor="@color/bubble_text_secondary"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <!-- Refresh Token -->
+        <TextView
+            style="@style/FieldLabel"
+            android:layout_marginTop="10dp"
+            android:text="Refresh Token" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:background="@drawable/bg_card_12"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/config_refresh_token"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:background="@null"
+                android:hint="Active Refresh Token..."
+                android:inputType="textPassword"
+                android:paddingStart="12dp"
+                android:singleLine="true"
+                android:textColor="@color/bubble_text_primary"
+                android:textColorHint="@color/bubble_text_muted"
+                android:textSize="13sp" />
+
+            <TextView
+                android:id="@+id/config_refresh_token_toggle"
+                style="@style/IconSmall"
+                android:layout_marginEnd="12dp"
+                android:text="visibility"
+                android:textColor="@color/bubble_text_secondary"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <!-- Folder ID -->
+        <TextView
+            style="@style/FieldLabel"
+            android:layout_marginTop="10dp"
+            android:text="Workdrive Folder ID" />
+
+        <EditText
+            android:id="@+id/config_folder_id"
+            style="@style/BubbleEditText"
+            android:layout_marginTop="4dp"
+            android:hint="Folder ID where excel resides..." />
+
+        <!-- File name -->
+        <TextView
+            style="@style/FieldLabel"
+            android:layout_marginTop="10dp"
+            android:text="Target File Name" />
+
+        <EditText
+            android:id="@+id/config_file_name"
+            style="@style/BubbleEditText"
+            android:layout_marginTop="4dp"
+            android:hint="e.g. movies" />
+
+        <!-- Extension -->
+        <TextView
+            style="@style/FieldLabel"
+            android:layout_marginTop="10dp"
+            android:text="File Extension" />
+
+        <EditText
+            android:id="@+id/config_extension"
+            style="@style/BubbleEditText"
+            android:layout_marginTop="4dp"
+            android:hint="e.g. xlsx" />
+
+        <!-- Delete old data switch -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/bg_card_12"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="14dp">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Delete Old Data First"
+                    android:textColor="@color/bubble_text_primary"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Wipes local app listings before inserting database workbook sync rows."
+                    android:textColor="@color/bubble_text_secondary"
+                    android:textSize="11sp" />
+            </LinearLayout>
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/config_clear_old"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="14dp" />
+        </LinearLayout>
+
+        <!-- App lock switch + PIN -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/bg_card_12"
+            android:orientation="vertical"
+            android:padding="14dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="App Lock Security PIN"
+                        android:textColor="@color/bubble_text_primary"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Require entering a numeric PIN to unlock access to all client layers."
+                        android:textColor="@color/bubble_text_secondary"
+                        android:textSize="11sp" />
+                </LinearLayout>
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/config_app_lock"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="14dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/config_pin_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    style="@style/FieldLabel"
+                    android:text="App Lock PIN Code (4-8 digits)" />
+
+                <EditText
+                    android:id="@+id/config_pin"
+                    style="@style/BubbleEditText"
+                    android:layout_marginTop="4dp"
+                    android:hint="e.g. 1234"
+                    android:inputType="number" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="Keep this PIN safe. It will be required every time the app launches."
+                    android:textColor="@color/bubble_text_secondary"
+                    android:textSize="9sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- ================= Advanced regional settings ================= -->
+        <LinearLayout
+            android:id="@+id/config_advanced_toggle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/config_advanced_icon"
+                style="@style/IconSmall"
+                android:text="expand_more"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/config_advanced_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:text="Generic region settings (Advanced Regional Hostings)"
+                android:textColor="@color/bubble_blue"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/config_advanced_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <TextView
+                style="@style/FieldLabel"
+                android:layout_marginTop="8dp"
+                android:text="Regional Accounts Server Host" />
+
+            <EditText
+                android:id="@+id/config_accounts_server"
+                style="@style/BubbleEditText"
+                android:layout_marginTop="4dp"
+                android:hint="https://accounts.cloudworkdrive.com" />
+
+            <TextView
+                style="@style/FieldLabel"
+                android:layout_marginTop="8dp"
+                android:text="Regional Workdrive API Host" />
+
+            <EditText
+                android:id="@+id/config_api_server"
+                style="@style/BubbleEditText"
+                android:layout_marginTop="4dp"
+                android:hint="https://workdrive.api-provider.com" />
+
+            <!-- ===== NEW: the 4 UploadFileAPI URLs ===== -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:text="UploadFileAPI endpoints"
+                android:textColor="@color/bubble_text_primary"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
+            <TextView
+                style="@style/FieldLabel"
+                android:layout_marginTop="8dp"
+                android:text="Zoho Accounts URL" />
+
+            <EditText
+                android:id="@+id/config_zoho_accounts_url"
+                style="@style/BubbleEditText"
+                android:layout_marginTop="4dp"
+                android:hint="https://accounts.zoho.com/oauth/v2/token" />
+
+            <TextView
+                style="@style/FieldLabel"
+                android:layout_marginTop="8dp"
+                android:text="Workdrive API URL (upload)" />
+
+            <EditText
+                android:id="@+id/config_workdrive_api_url"
+                style="@style/BubbleEditText"
+                android:layout_marginTop="4dp"
+                android:hint="https://workdrive.zoho.com/api/v1/upload" />
+
+            <TextView
+                style="@style/FieldLabel"
+                android:layout_marginTop="8dp"
+                android:text="Workdrive List URL (files in folder)" />
+
+            <EditText
+                android:id="@+id/config_workdrive_list_url"
+                style="@style/BubbleEditText"
+                android:layout_marginTop="4dp"
+                android:hint="https://www.zohoapis.com/workdrive/api/v1/files/" />
+
+            <TextView
+                style="@style/FieldLabel"
+                android:layout_marginTop="8dp"
+                android:text="Workdrive Download URL" />
+
+            <EditText
+                android:id="@+id/config_workdrive_download_url"
+                style="@style/BubbleEditText"
+                android:layout_marginTop="4dp"
+                android:hint="https://download-accl.zoho.com/v1/workdrive/download/" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:paddingStart="2dp"
+                android:text="Client ID, Client Secret, Refresh Token and Workdrive Folder ID above are the existing fields - the scheduler reuses them as they are."
+                android:textColor="@color/bubble_text_secondary"
+                android:textSize="9sp" />
+        </LinearLayout>
+
+        <!-- Save -->
+        <LinearLayout
+            android:id="@+id/config_save"
+            android:layout_width="match_parent"
+            android:layout_height="46dp"
+            android:layout_marginTop="14dp"
+            android:background="@drawable/bg_gradient_button_16"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/IconInline"
+                android:text="save"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:text="Save Configuration Parameters"
+                android:textColor="@color/white"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="100dp" />
+    </LinearLayout>
+</ScrollView>
